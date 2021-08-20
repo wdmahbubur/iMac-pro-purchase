@@ -9,24 +9,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-        <style>
-            .btn{
-                font-size: 14px;
-            }
-            .price{
-                margin-left: 150px;
-            }
-            .price-table tr td{
-                font-weight: 500;
-                padding: 10px;
-            }
-        </style>
+    <!-- custom css link -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <main>
         <section class="container py-5">
             <div class="row gx-5">
                 <div class="col-md-6">
+                    <!-- imac pro image -->
                     <img src="images/mac.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-6">
@@ -40,60 +31,64 @@
                     <!-- Memory -->
                     <div class="my-5">
                         <h4>Memory</h4>
-                        <button class="btn btn-light border border-2">8GB unified Memory</button>
-                        <button class="btn btn-light border border-2">16GB unified Memory</button>
+                        <button class="btn btn-light border border-2" onclick="updatePrice('memory', '8GB');">8GB unified Memory</button>
+                        <button class="btn btn-light border border-2" onclick="updatePrice('memory', '16GB');">16GB unified Memory</button>
 
                     </div>
                     
                     <!-- Storage -->
                     <div class="my-5">
                         <h4>Storage</h4>
-                        <button class="btn btn-light border border-2">256GB SSD storage</button>
-                        <button class="btn btn-light border border-2">512GB SSD storage</button>
-                        <button class="btn btn-light border border-2">1TB SSD storage</button>
+                        <button class="btn btn-light border border-2" onclick="updatePrice('storage', '256GB');">256GB SSD storage</button>
+                        <button class="btn btn-light border border-2" onclick="updatePrice('storage', '512GB');">512GB SSD storage</button>
+                        <button class="btn btn-light border border-2" onclick="updatePrice('storage', '1TB');">1TB SSD storage</button>
                     </div>
                     
                     <!-- Delivery Option -->
                     <div class="my-5">
                         <h4>Choose your Delivery option</h4>
-                        <button class="btn btn-light border border-2">Friday, Aug 25 Free Home Delivery</button>
-                        <button class="btn btn-light border border-2">Friday, Aug 21 Delivery charge $20</button>
+                        <button class="btn btn-light border border-2"  onclick="updatePrice('delivery', 'free');">Friday, Aug 25 Free Home Delivery</button>
+                        <button class="btn btn-light border border-2"  onclick="updatePrice('delivery', 'fast-delivery');">Friday, Aug 21 Delivery charge $20</button>
                     </div>
 
                     <!-- Price Calculation -->
                     <table class="mt-5 mb-2 price-table">
                         <tr class="border-bottom">
                             <td>Best Price</td>
-                            <td class="ps-5">$1299</td>
+                            <td class="ps-5" ><span id="best-price">1299</span></td>
                         </tr>
                         <tr class="border-bottom">
                             <td>Extra Memory Cost</td>
-                            <td class="ps-5">$0</td>
+                            <td class="ps-5">$<span id="memory-cost">0</span></td>
                         </tr>
                         <tr class="border-bottom">
                             <td>Extra Storage Cost</td>
-                            <td class="ps-5">$0</td>
+                            <td class="ps-5">$<span id="storage-cost">0</span></td>
                         </tr>
                         <tr class="border-bottom border-dark">
                             <td>Delivery Charge</td>
-                            <td class="ps-5">$0</td>
+                            <td class="ps-5">$<span id="delivery-cost">0</span></td>
                         </tr>
                         <tr class="">
                             <td>Total Price</td>
-                            <td class="ps-5">$1299</td>
+                            <td class="ps-5">$<span id="total-price">1299</span></td>
                         </tr>
                     </table>
+                    <!-- promo code input field -->
                     <div>
                         <label for="promo-code" class="d-block">Add Promo Code</label>
                         <input type="text" name="promo-code" id="promo-code">
-                        <button type="button" class="btn btn-danger">Apply</button>
+                        <button type="button" class="btn btn-danger" onclick="promoCode();">Apply</button>
+                        <!-- if enter wrong promo code then show the error -->
+                        <p class="text-danger" id="invalid-warring">Invalid Promo Code</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     <footer class="border-top border-dark py-2">
-        <h2 class="text-center">Total Price: $1299</h2>
+        <!-- footer total price -->
+        <h2 class="text-center">Total Price: $<span id="final-total">1299</span> </h2>
     </footer>
 
 

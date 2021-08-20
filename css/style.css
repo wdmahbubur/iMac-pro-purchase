@@ -1,0 +1,17 @@
+/* default button font size */
+.btn{
+    font-size: 14px;
+}
+/* dynamic price table */
+.price-table tr td{
+    font-weight: 500;
+    padding: 10px;
+}
+/* cart price number */
+.price{
+    margin-left: 150px;
+}
+/* if enter wrong promo code */
+#invalid-warring{
+    display: none;
+}
